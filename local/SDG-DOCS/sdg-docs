@@ -1,0 +1,137 @@
+#!/bin/bash
+
+DOCS_DIR="$HOME/.local/docs"
+
+LINKS=$(cat <<'LINKS_EOF'
+MangoWM - Basic Configuration|https://mangowm.github.io/docs/configuration/basics
+MangoWM - monitors|https://mangowm.github.io/docs/configuration/monitors
+MangoWM - Input Devices|https://mangowm.github.io/docs/configuration/input
+MangoWM - Theming|https://mangowm.github.io/docs/visuals/theming
+MangoWM - Window Effects|https://mangowm.github.io/docs/visuals/effects
+MangoWM - Animations|https://mangowm.github.io/docs/visuals/animations
+MangoWM - Layouts|https://mangowm.github.io/docs/window-management/layouts
+MangoWM - Window and Tag Rules|https://mangowm.github.io/docs/window-management/rules
+MangoWM - Overview Mode|https://mangowm.github.io/docs/window-management/overview
+MangoWM - Scratchpad|https://mangowm.github.io/docs/window-management/scratchpad
+MangoWM - Key Binds and Dispatchers|https://mangowm.github.io/docs/bindings/keys
+MangoWM - Mouse Binds and Gestures|https://mangowm.github.io/docs/bindings/mouse-gestures
+MangoWM - IPC command line tool|https://mangowm.github.io/docs/ipc
+Dank Material Shell - Overview|https://danklinux.com/docs/dankmaterialshell/overview
+Dank Material Shell - Managing Your Install|https://danklinux.com/docs/dankmaterialshell/managing
+Dank Material Shell - IPC command line reference|https://danklinux.com/docs/dankmaterialshell/keybinds-ipc
+Dank Material Shell - Diagnostics|https://danklinux.com/docs/dankmaterialshell/cli-doctor
+Dank Material Shell - Application Themes|https://danklinux.com/docs/dankmaterialshell/application-themes
+Ghostty - Reference docs|https://ghostty.org/docs/config/reference
+Ghostty - Keybind Reference|https://ghostty.org/docs/config/keybind/reference
+CachyOS - Wiki|https://wiki.cachyos.org/cachyos_basic/navigation-guide/
+Arch - Wiki|https://wiki.archlinux.org/title/Main_page
+LINKS_EOF
+)
+
+print_usage() {
+    cat <<EOF
+Usage: sdg-docs [command] [options]
+
+Commands:
+  (no command)           Browse all documentation with fzf
+    --from SDG-DOC-NAME  Scope to a specific doc module (e.g. SDG-DOC-DEVS)
+  sources                List available doc modules
+  links                  Show external documentation links
+  read <path>            Display a specific doc file with bat
+
+Options:
+  --from SDG-DOC-NAME   Filter to a single doc module directory
+EOF
+}
+
+cmd_browse() {
+    local filter="$1"
+    local files=()
+
+    if [ -n "$filter" ]; then
+        while IFS= read -r -d '' f; do
+            files+=("$f")
+        done < <(find "$DOCS_DIR/$filter" -name '*.md' -type f -print0 2>/dev/null)
+    else
+        while IFS= read -r -d '' f; do
+            files+=("$f")
+        done < <(find "$DOCS_DIR" -mindepth 2 -name '*.md' -type f -print0 2>/dev/null)
+    fi
+
+    if [ ${#files[@]} -eq 0 ]; then
+        echo "No documentation found."
+        [ -n "$filter" ] && echo "Doc module '$filter' not found. Run 'sdg-docs sources' to list available modules."
+        exit 1
+    fi
+
+    local selected
+    selected=$(printf '%s\n' "${files[@]}" | sed "s|$DOCS_DIR/||" | fzf --layout=reverse --preview-window='right:70%:wrap' --preview="bat --style=plain -f --file-name {1} '$DOCS_DIR/{}'")
+
+    [ -n "$selected" ] && bat --style=plain -f "$DOCS_DIR/$selected"
+}
+
+cmd_sources() {
+    if [ ! -d "$DOCS_DIR" ]; then
+        echo "No documentation modules found."
+        exit 0
+    fi
+
+    printf "%-40s %s\n" "Doc Module" "Files"
+    printf "%-40s %s\n" "----------" "-----"
+    for dir in "$DOCS_DIR"/SDG-DOC-*/; do
+        [ -d "$dir" ] || continue
+        local name=$(basename "$dir")
+        local count=$(find "$dir" -name '*.md' -type f | wc -l)
+        [ "$count" -gt 0 ] && printf "%-40s %s\n" "$name" "$count"
+    done
+}
+
+cmd_links() {
+    echo "$LINKS" | fzf --layout=reverse --preview='echo {1}' --delimiter='|' --with-nth=1 --bind "enter:execute(firefox --new-tab {2} 2>/dev/null)"
+}
+
+cmd_read() {
+    local path="$1"
+    [ -z "$path" ] && { echo "Usage: sdg-docs read <path>"; exit 1; }
+
+    local target="$DOCS_DIR/$path"
+    if [ -f "$target" ]; then
+        bat --style=plain -f "$target"
+    elif [ -f "$DOCS_DIR/$path.md" ]; then
+        bat --style=plain -f "$DOCS_DIR/$path.md"
+    else
+        local match=$(find "$DOCS_DIR" -path "*/$path*" -name '*.md' 2>/dev/null | head -1)
+        if [ -n "$match" ]; then
+            bat --style=plain -f "$match"
+        else
+            echo "Document not found: $path"
+            exit 1
+        fi
+    fi
+}
+
+DOC_FILTER=""
+CMD=""
+
+while [ $# -gt 0 ]; do
+    case "$1" in
+        --from)
+            shift; DOC_FILTER="$1"; shift
+            ;;
+        sources|links|read|help|--help|-h)
+            CMD="$1"; shift
+            ;;
+        *)
+            CMD="$1"; shift
+            ;;
+    esac
+done
+
+case "${CMD:-browse}" in
+    browse)     cmd_browse "$DOC_FILTER" ;;
+    sources)    cmd_sources ;;
+    links)      cmd_links ;;
+    read)       cmd_read "$@" ;;
+    help)       print_usage ;;
+    *)          echo "Unknown command: $CMD"; print_usage; exit 1 ;;
+esac
