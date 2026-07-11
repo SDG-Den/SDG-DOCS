@@ -22,7 +22,7 @@ level0() {
     printf '%s\n' "${modules[@]}" \
         | fzf --layout=reverse \
               --prompt='module > ' \
-              --preview="_tree_preview {}" \
+              --preview="$SCRIPT_PATH --tree-preview {}" \
               --preview-window='right:60%:wrap' \
               --bind="enter:become($SCRIPT_PATH --from {})"
 }
@@ -87,6 +87,8 @@ _tree_preview() {
 
 if [ "$1" = "--from" ] && [ -n "$2" ]; then
     level1 "$2"
+elif [ "$1" = "--tree-preview" ] && [ -n "$2" ]; then
+    _tree_preview "$2"
 else
     level0
 fi
