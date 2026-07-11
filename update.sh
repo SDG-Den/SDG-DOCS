@@ -2,17 +2,12 @@
 
 WORKDIR="$HOME/.cache/SDG-PKG/sdg-docs"
 
+# Update the scripts — only touch our own dir.
 rm -rf "$HOME/.local/SDG-DOCS"
-cp -r "$WORKDIR/local/"* "$HOME/.local/"
+cp -r "$WORKDIR/local/SDG-DOCS" "$HOME/.local/SDG-DOCS"
 
-rm -rf "$HOME/.local/docs/SDG-DOC-NEW-USERS" \
-      "$HOME/.local/docs/SDG-DOC-TINKERERS" \
-      "$HOME/.local/docs/SDG-DOC-DEVS" \
-      "$HOME/.local/docs/SDG-DOC-AGENTS"
-cp -r "$WORKDIR/docs/"* "$HOME/.local/docs/"
-
-rm -rf "$HOME/.local/tips/SDG-DOCS"
-cp -r "$WORKDIR/tips/"* "$HOME/.local/tips/"
+# Don't touch ~/.local/docs/ — each doc module manages its own docs.
+# Don't touch ~/.local/tips/ — each tip module manages its own tips.
 
 sudo ln -sf "$HOME/.local/SDG-DOCS/sdg-docs" /usr/bin/sdgdocs
 sudo ln -sf "$HOME/.local/SDG-DOCS/sdg-links" /usr/bin/sdglinks
