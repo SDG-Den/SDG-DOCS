@@ -14,4 +14,5 @@ cp -r "$WORKDIR/docs/"* "$HOME/.local/docs/"
 rm -rf "$HOME/.local/tips/SDG-DOCS"
 cp -r "$WORKDIR/tips/"* "$HOME/.local/tips/"
 
-sudo ln -sf "$HOME/.local/SDG-DOCS/sdg-docs" /usr/bin/sdg-docs
+sudo ln -sf "$HOME/.local/SDG-DOCS/sdg-docs" /usr/bin/sdgdocs
+sudo ln -sf "$HOME/.local/SDG-DOCS/sdg-links" /usr/bin/sdglinks
