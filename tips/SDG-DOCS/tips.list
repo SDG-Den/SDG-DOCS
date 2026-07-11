@@ -1,6 +1,5 @@
-Use 'sdg-docs' to browse documentation from all installed modules
-Use 'sdg-docs --from SDG-DOC-DEVS' to browse only developer docs
-Use 'sdg-docs sources' to list all documentation modules
-Use 'sdg-docs links' to open external reference documentation
+Use 'sdgdocs' to browse docs by module and drill into specific documents
+Use 'sdgdocs --from SDG-DOC-DEVS' to browse only developer docs
+Use 'sdglinks' to browse external reference documentation
 Documentation modules are identified by their SDG-DOC- prefix
 Each module ships its own docs to ~/.local/docs/ automatically

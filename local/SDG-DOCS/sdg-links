@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# sdg-links: external documentation links browser
+# Standalone companion to sdg-docs. Opens reference links in Firefox.
+
+LIST="$HOME/.local/SDG-DOCS/links.list"
+
+SELECTED=$(cut -d'|' -f1 "$LIST" | fzf --layout=reverse --prompt='links > ')
+
+[ -z "$SELECTED" ] && exit 0
+
+CMD=$(grep -F "$SELECTED|" "$LIST" | cut -d'|' -f2-)
+
+eval "$CMD"
