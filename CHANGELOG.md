@@ -1,3 +1,10 @@
+#  sdg-docs update 0.4
+    
+## changelog 0.3 > 0.4
+
+allowed sdgdocs to show docs that don't start with "SDG-DOCS-"
+
+
 #  sdg-docs update 0.3
 
 ## changelog  0.2 > 0.3

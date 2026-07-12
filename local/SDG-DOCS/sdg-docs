@@ -12,7 +12,7 @@ SCRIPT_PATH="$(readlink -f "$0")"
 
 level0() {
     local modules=()
-    for dir in "$DOCS_DIR"/SDG-DOC-*/; do
+    for dir in "$DOCS_DIR"/*/; do
         [ -d "$dir" ] || continue
         modules+=("$(basename "$dir")")
     done
