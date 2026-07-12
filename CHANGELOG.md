@@ -1,3 +1,10 @@
+#  sdg-docs update 0.4.1
+    
+## changelog 0.4 > 0.4.1
+
+tweaked interface to be more consistent (esc to go back) and inform user of this function.
+
+
 #  sdg-docs update 0.4
     
 ## changelog 0.3 > 0.4

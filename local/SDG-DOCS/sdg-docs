@@ -22,6 +22,7 @@ level0() {
     printf '%s\n' "${modules[@]}" \
         | fzf --layout=reverse \
               --prompt='module > ' \
+              --header='esc: quit' \
               --preview="$SCRIPT_PATH --tree-preview {}" \
               --preview-window='right:60%:wrap' \
               --bind="enter:become($SCRIPT_PATH --from {})"
@@ -47,9 +48,10 @@ level1() {
     printf '%s\n' "${files[@]}" \
         | fzf --layout=reverse \
               --prompt="$module > " \
+              --header='esc: back | enter: read' \
               --preview="bat --style=plain -f '$dir/{}'" \
               --preview-window='right:60%:wrap' \
-              --bind="enter:execute(bat --style=plain -f '$dir/{}')" \
+              --bind="enter:execute(bat --style=plain --color=always '$dir/{}' | fzf --layout=reverse --bind='esc:abort,enter:abort' --no-input --ansi --disabled --preview-window=hidden --prompt='')" \
               --bind="esc:become($SCRIPT_PATH)"
 }
 

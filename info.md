@@ -2,7 +2,7 @@ Package Name: sdg-docs
 Descriptive Name: SDG Documentation Module
 Source: https://github.com/SDG-Den/SDG-DOCS
 Maintainer: SDGDen
-Version:0.4
+Version:0.4.1
 
 Dependencies: 
 fzf, bat
