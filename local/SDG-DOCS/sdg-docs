@@ -50,7 +50,7 @@ level1() {
               --preview="bat --style=plain -f '$dir/{}'" \
               --preview-window='right:60%:wrap' \
               --bind="enter:execute(bat --style=plain -f '$dir/{}')" \
-              --bind="escape:become($SCRIPT_PATH)"
+              --bind="esc:become($SCRIPT_PATH)"
 }
 
 # ── Tree Preview: shows what's inside a module at level 0 ─────────────────────
