@@ -130,7 +130,6 @@ echo "https://raw.githubusercontent.com/you/sdg-repo/main/SDGOS.repo" > ~/.confi
 sdgpkg install my-new-module
 
 # Verify
-sdgtip sources          # Should show your module's tips
-sdg-docs                  # Should include your module's docs
+sdgdocs                   # Should include your module's docs
 which mycli               # Should show the symlink
 ```

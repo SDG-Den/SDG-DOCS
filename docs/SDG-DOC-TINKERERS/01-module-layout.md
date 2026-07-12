@@ -51,7 +51,7 @@ docs/
   SDG-DOC-DESKTOP-USAGE/     # Another doc sub-module
 ```
 
-These subdirectories are what the `sdg-docs` CLI discovers when you
+These subdirectories are what the `sdgdocs` CLI discovers when you
 use `--module` to drill into a specific topic area.  A doc sub-module
 can be split out into its own repository later without changing any
 consumer paths — just the install source path changes.

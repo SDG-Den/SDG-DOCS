@@ -24,11 +24,11 @@ When you need help with something:
 
 1. **Keybinds** — Press `SUPER+K` to see the keybinds overview
 2. **Command help** — Press `SUPER+H` and search for any command
-3. **Documentation** — Run `sdg-docs` to browse all installed docs
+3. **Documentation** — Run `sdgdocs` to browse all installed docs
 4. **Tips** — Run `sdgtip` for a random tip, or `sdgtip list`
-5. **External docs** — Run `sdg-docs links` for online references
+5. **External docs** — Run `sdglinks` for online references
 
-Run `sdg-docs --from SDG-DOCS` to see this documentation module's
+Run `sdgdocs --from SDG-DOCS` to see this documentation module's
 own content.
 
 ## Customising Appearance

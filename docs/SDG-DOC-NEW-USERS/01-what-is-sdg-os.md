@@ -56,7 +56,7 @@ install scripts work on any distribution with the same syntax:
 Every module can ship its own documentation and tips.  Two cross-module
 CLI tools let you browse everything in one place:
 
-- **`sdg-docs`** — Aggregate documentation browser.  Globs
+- **`sdgdocs`** — Aggregate documentation browser.  Globs
   `~/.local/docs/*/` and presents a searchable list, letting you
   find docs from any installed module.
 - **`sdgtip`** — Aggregate tip system.  Globs `~/.local/tips/*/`

@@ -4,14 +4,14 @@ The SDG-OS documentation system. Aggregate, browse, and read documentation from 
 
 ## Description
 
-SDG-DOCS provides a unified documentation browser (`sdg-docs`) that collects markdown docs from every installed module and presents them in an interactive fzf-based interface. It ships four curated documentation suites covering users, tinkerers, developers, and AI agents.
+SDG-DOCS provides a unified documentation browser (`sdgdocs`) that collects markdown docs from every installed module and presents them in an interactive fzf-based interface. It ships six curated documentation suites covering users, tinkerers, developers, AI agents, troubleshooting, and migration.
 
 ## Usage
 
 ```bash
-sdgdocs                     # Pick a module → pick a doc → read it
-sdgdocs --from SDG-DOC-DEVS # Skip module picker, go straight to dev docs
-sdglinks                    # Browse external reference links
+sdgdocs                      # Pick a module → pick a doc → read it
+sdgdocs --from SDG-DOC-DEVS  # Skip module picker, go straight to dev docs
+sdglinks                     # Browse external reference links
 ```
 
 ## Installation
@@ -29,5 +29,5 @@ sdgpkg install sdg-docs
 ## Related Packages
 
 - **SDG-TIPS** — complements docs with short actionable tips
-- **SDG-TERM** — references sdg-docs in shell aliases
+- **SDG-TERM** — references sdgdocs in shell aliases
 - **SDG-UTIL-SCRIPTS** — provides additional help/documentation browsers

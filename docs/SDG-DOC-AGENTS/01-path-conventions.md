@@ -56,7 +56,7 @@ cat ~/.config/mango/binds.conf
 
 ```sh
 command -v sdgtip    # Tips CLI
-command -v sdg-docs    # Docs browser
+command -v sdgdocs    # Docs browser
 command -v sdgpkg      # Package manager
 command -v sdgfetch    # System info
 command -v sdgvox      # Voice commands

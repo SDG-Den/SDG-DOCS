@@ -1,6 +1,6 @@
 # Tips and Docs API
 
-The `sdgtip` and `sdg-docs` CLIs expose machine-readable output
+The `sdgtip` and `sdgdocs` CLIs expose machine-readable output
 modes that agents can consume.
 
 ## sdgtip Machine Interface
@@ -18,16 +18,13 @@ sdgtip list            # Interactive fzf — not suitable for automation
 cat ~/.local/tips/*/*.list
 ```
 
-## sdg-docs Machine Interface
+## sdgdocs Machine Interface
 
 ```sh
-# List available doc sources
-sdg-docs sources
+# List available doc directories (more reliable for automation)
+ls ~/.local/docs/
 
-# List external documentation links
-sdg-docs links
-
-# Read doc files directly (more reliable for automation)
+# Read doc files directly
 find ~/.local/docs/ -name '*.md' -type f
 ```
 

@@ -4,12 +4,11 @@
 
 SDG-OS has a layered help system:
 
-**`sdg-docs`** — Browse all installed module documentation.
+**`sdgdocs`** — Browse all installed module documentation.
 
-- `sdg-docs` — Interactive fzf browser across all docs
-- `sdg-docs --from MODULE` — Docs from a specific module
-- `sdg-docs sources` — List which modules have docs
-- `sdg-docs links` — Online reference links (MangoWM, DMS, Arch Wiki)
+- `sdgdocs` — Interactive fzf browser across all docs
+- `sdgdocs --from MODULE` — Docs from a specific module
+- `sdglinks` — Online reference links (MangoWM, DMS, Arch Wiki)
 
 **`sdgtip`** — Random tips and searchable tip library.
 
@@ -45,4 +44,4 @@ Each module can have multiple doc sub-modules:
 ```
 
 When you install a new module, its documentation is automatically
-available through `sdg-docs` — there is nothing extra to configure.
+available through `sdgdocs` — there is nothing extra to configure.

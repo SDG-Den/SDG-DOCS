@@ -52,7 +52,7 @@ Modules interact through well-defined paths:
 |-------------|----------|
 | `~/.config/<MODULE>/` | User configuration, preserved on update |
 | `~/.local/<MODULE>/` | Executables and data, replaced on update |
-| `~/.local/docs/<MODULE>/` | Documentation, consumed by `sdg-docs` |
+| `~/.local/docs/<MODULE>/` | Documentation, consumed by `sdgdocs` |
 | `~/.local/tips/<MODULE>/` | Tips, consumed by `sdgtip` |
 | `/usr/bin/<command>` | CLI entrypoints (symlinks to `~/.local/`) |
 
