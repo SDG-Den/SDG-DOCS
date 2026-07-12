@@ -1,7 +1,7 @@
 Package Name: sdg-docs
 Descriptive Name: SDG Documentation Module
-Source: https://git.sdgcloud.nl/SDGDen/SDG-OS-DOCS
-Maintainer: SDGDen <sdgden@sdgcloud.nl>
+Source: https://github.com/SDG-Den/SDG-DOCS
+Maintainer: SDGDen
 Version:0.2
 
 Dependencies: 
