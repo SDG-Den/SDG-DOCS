@@ -1,3 +1,8 @@
+#  sdg-docs update 0.4.1.1
+    
+## changelog 0.4.1 > 0.4.1.1
+
+updated and fixed install entrypoint
 #  sdg-docs update 0.4.1
     
 ## changelog 0.4 > 0.4.1

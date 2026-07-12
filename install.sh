@@ -1,5 +1,8 @@
 #!/bin/bash
 
+unipkg install any fzf
+unipkg install any bat
+
 WORKDIR="$HOME/.cache/SDG-PKG/sdg-docs"
 
 cp -r "$WORKDIR/local/"* "$HOME/.local/"
