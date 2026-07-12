@@ -1,7 +1,7 @@
-Use 'sdgdocs' to browse all documentation by module and drill into specific documents
-Use 'sdgdocs --from SDG-DOC-DEVS' to browse only a specific module's docs
-Use 'sdglinks' to open external reference documentation in Firefox
-Browse docs directly on disk at ~/.local/docs/ organised by module
-Customise the 'sdgdocs' preview by setting BAT_THEME in your shell config
-Contribute docs by cloning a module's repo and adding files to its docs/ directory
-Doc suites use the SDG-DOC- prefix convention for automatic discovery by sdgdocs
+[SDG-DOCS]: Use 'sdgdocs' to browse all documentation by module and drill into specific documents
+[SDG-DOCS]: Use 'sdgdocs --from SDG-DOC-DEVS' to browse only a specific module's docs
+[SDG-DOCS]: Use 'sdglinks' to open external reference documentation in Firefox
+[SDG-DOCS]: Browse docs directly on disk at ~/.local/docs/ organised by module
+[SDG-DOCS]: Customise the 'sdgdocs' preview by setting BAT_THEME in your shell config
+[SDG-DOCS]: Contribute docs by cloning a module's repo and adding files to its docs/ directory
+[SDG-DOCS]: Doc suites use the SDG-DOC- prefix convention for automatic discovery by sdgdocs
