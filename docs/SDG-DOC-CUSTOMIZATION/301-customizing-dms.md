@@ -1,42 +1,27 @@
-> Customizing DMS 
+# Customizing DMS
 
+This page covers parts of the DMS settings menu that are not immediately obvious. You can open the settings from the bar or by pressing **SUPER+S**.
 
-this page will go over customizing DMS using the settings menu, because much of the settings menu is either self-explanatory or has good explanations, this document will serve only as a reference for the parts that are not immediately obvious.
+## Personalization
 
+**Wallpaper settings** can be changed using the wallpaper script (**SUPER+W**). Turning on per-mode or per-monitor wallpapers here will prevent the script from working properly.
 
-you can open the settings from the bar or by pressing *super+s*
+**Color settings** are listed by their application area. The top section controls theme and colors. Setting colors to Auto uses Matugen for dynamic color extraction from your wallpaper.
 
-### personalization
+Matugen templates control how the color scheme is applied to other programs. All templates are enabled by default, so most software works automatically. Some applications need manual configuration:
 
-the wallpaper settings can be modified using the wallpaper script (*super+w*), this will effectively change the set wallpaper. turning on per-mode or per-monitor wallpapers here will prevent the script from working properly.
+- **Firefox, Vesktop, VSCode** — may need additional setup. Instructions are available at https://danklinux.com/docs/dankmaterialshell/application-themes
+- **Vesktop** — enable the theme in Vencord theme settings, then toggle light/dark mode to trigger an update
+- **GTK/QT applications** — if themes are not applying, click the refresh button at the bottom of the Themes and Colors page
 
-for the color settings, generally, colors are listed by their application outside of the top section of theme and colors. all colors are decided from there.
+## Bar
 
-auto uses matugen, different templates give different results for colors and it is recommended to play around with each. 
+SDG-OS comes with several pre-configured bars: a full top bar, a bottom bar, a top status bar, and a side bar. You can tweak these in the settings or by using `dmsbars` to switch between preset combinations.
 
-matugen templates are used to apply the color scheme to other programs, DMS comes with a selection, and it is possible to add your own.
+## Workspaces
 
-Currently, no additional matugen templates are provided, but the requirements for both GTK and QT theming are included.
+These settings affect how workspaces and tags are displayed in your top bar.
 
-all templates are enabled by default, so outside of the software that needs manual configuration (firefox, vesktop and vscode, which does work even if vscode itself is not detected because you're using another version of it, like code-oss), it should work by default.
+## Keyboard shortcuts
 
-you can find good instructions on how to handle these applications here: https://danklinux.com/docs/dankmaterialshell/application-themes
-
-for vesktop, you'll need to enable the theme under the vencord theme settings and then *change your theme* (eg toggling light mode on and off) to make it update.
-
-if GTK or QT applications (most native linux apps) are not being themed properly, you can click the button at the bottom of the themes and colors page. 
-
-### dank bar
-
-SDG-OS comes with 4 pre-configured bars: a full top bar, a bottom bar, a top status bar and a side bar. 
-
-you can tweak these however you wish, to get different looks, you can check how these are configured. 
-
-
-## workspaces
-these affect the workspaces/tags display in your top bar. 
-
-## keyboard shortcuts
-
-these interact with your mango config, you can see all of the current binds, add new ones (Which are saved to ~/.config/mango/dms/binds.conf, including overwrites) 
-
+This section lets you view all current keybinds and add new ones. Custom binds are saved to `~/.config/mango/dms/binds.conf`.
