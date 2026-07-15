@@ -40,12 +40,12 @@ Keybind: **SUPER+SHIFT+W**
 
 Navigate with arrow keys and press Enter to select. Affects only the current monitor and resets on config reload. Press **SUPER+R** to reset to the default layout.
 
-## Documentation Menu
+## Documentation Browser
 
 Keybind: **SUPER+SHIFT+M**
-Alias: `documentation`
+Alias: `sdgdocs`
 
-Opens documentation sites in Firefox and provides searchable quick reference menus.
+Browse all installed module documentation.  Select a doc module, then a document — opens with `bat` for formatted reading.
 
 ## Wallpaper Switcher
 

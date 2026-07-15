@@ -1,5 +1,8 @@
 # Lifecycle Scripts Reference
 
+Every SDG-OS module defines lifecycle scripts at its repository root
+that sdgpkg calls during install, update, and removal.
+
 ## install.sh
 
 Called once when a module is first installed.  sdgpkg clones the repo
@@ -12,8 +15,8 @@ to `~/.cache/SDG-PKG/<module>/` and then runs this script.
 - Run any first-time setup (model downloads, database initialisation)
 - Verify critical commands exist before exiting
 
-**Important:** If `install.sh` exits with a non-zero status, sdgpkg
-considers the installation failed.
+If `install.sh` exits with a non-zero status, sdgpkg considers the
+installation failed.
 
 ## uninstall.sh
 

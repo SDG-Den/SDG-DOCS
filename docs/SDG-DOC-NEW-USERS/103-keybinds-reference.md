@@ -39,7 +39,7 @@ The most important keybind category in SDG-OS is the `SUPER` key
 |---------|--------|
 | `SUPER+H` | Command reference (tldr) |
 | `SUPER+SHIFT+H` | Help/documentation browser |
-| `SUPER+SHIFT+M` | External documentation links |
+| `SUPER+SHIFT+M` | Documentation browser (sdgdocs) |
 | `SUPER+SHIFT+/` | Config reference sheets |
 | `SUPER+K` | Keybinds list |
 | `SUPER+M` | MangoWM config editor |

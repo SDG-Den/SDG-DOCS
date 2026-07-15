@@ -48,7 +48,7 @@ named subdirectories that act as *virtual doc modules*:
 ```
 docs/
   SDG-DOC-GETTING-STARTED/   # One doc sub-module
-  SDG-DOC-DESKTOP-USAGE/     # Another doc sub-module
+  SDG-DOC-NEW-USERS/         # Another doc sub-module
 ```
 
 These subdirectories are what the `sdgdocs` CLI discovers when you
@@ -69,3 +69,31 @@ tips/
 The `sdgtip` CLI aggregates all `.list` files it finds under
 `~/.local/tips/`, so adding a new tip sub-module automatically
 makes its content available.
+
+## Registering a Module in the Repo
+
+For a module to be installable via `sdgpkg install <name>`, it must
+be registered in a `.repo` index.  The central registry is maintained
+in the SDG-REPO module:
+
+```
+sdg-vox|https://git.sdgcloud.nl/SDGDen/SDG-VOX|https://git.sdgcloud.nl/SDGDen/SDG-VOX/raw/branch/main/README.md
+```
+
+Fields: `package-name | git-clone-url | readme-url`
+
+Repo files live in `~/.config/SDG-PKG/`.  Each file is plain text
+with one URL per line pointing to a pipe-delimited index.  The
+default file is `50-core.repo`.
+
+### Testing a Module Locally
+
+Before submitting to the central registry, test with a local repo
+file:
+
+```sh
+echo "https://raw.githubusercontent.com/you/sdg-repo/main/SDGOS.repo" > ~/.config/SDG-PKG/00-test.repo
+sdgpkg install my-new-module
+sdgdocs                   # Should include your module's docs
+which mycli               # Should show the symlink
+```

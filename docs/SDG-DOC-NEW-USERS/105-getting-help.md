@@ -16,12 +16,12 @@ SDG-OS has a layered help system:
 - `sdgtip list` — Browse all tips
 - `sdgtip sources` — List which modules contribute tips
 
-**Legacy tools** (still available during migration):
+**Additional tools**:
 
 - `SUPER+SHIFT+H` — `helptui` (original help topic browser)
 - `SUPER+H` — `tldrtui` (command reference with tldr + man)
-- `SUPER+SHIFT+M` — `document` (external doc links launcher)
-- `SUPER+SHIFT+/` — `reference` (config reference sheets)
+- `SUPER+SHIFT+M` — `sdgdocs` (documentation browser)
+- `SUPER+SHIFT+/` — Config reference sheets
 
 ## Documentation Modules
 
@@ -30,17 +30,14 @@ Each module can have multiple doc sub-modules:
 
 ```
 ~/.local/docs/
-  SDG-UTIL-SCRIPTS/
-    SDG-DOC-GETTING-STARTED/   # Welcome, keybinds, overview
-    SDG-DOC-DESKTOP-USAGE/     # Window management, menus
-    SDG-DOC-TERMINAL/          # Terminal basics
-    SDG-DOC-CUSTOMIZATION/     # DMS and mangoWM config
-    SDG-DOC-DEVELOPMENT/       # Scripting
   SDG-DOCS/
-    SDG-DOC-NEW-USERS/         # This section
-    SDG-DOC-TINKERERS/         # Customisation deep-dive
-    SDG-DOC-DEVS/              # Module development
+    SDG-DOC-GETTING-STARTED/   # Welcome, keybinds, overview
+    SDG-DOC-NEW-USERS/         # Desktop navigation, keybinds, workflows
+    SDG-DOC-TERMINAL/          # Terminal basics, scripting
+    SDG-DOC-TINKERERS/         # Module layout, configuration, theming
+    SDG-DOC-DEVS/              # Architecture overview, SDG-PKG reference
     SDG-DOC-AGENTS/            # AI/automation integration
+    SDG-DOC-TROUBLESHOOTING/   # Common issues and fixes
 ```
 
 When you install a new module, its documentation is automatically

@@ -42,12 +42,12 @@ Graphical interface for browsing and installing official Arch packages with mult
 
 Alias: `pacgui`
 
-## Documentation Menu
+## Documentation Browser
 
-Quick access to various documentation sources and interactive reference lists.
+Browse all installed module documentation.  Opens an interactive fzf browser.
 
 Keybind: **SUPER+SHIFT+M**
-Alias: `documentation`
+Alias: `sdgdocs`
 
 ## Layout Switcher
 

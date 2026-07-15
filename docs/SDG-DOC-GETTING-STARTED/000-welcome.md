@@ -8,16 +8,16 @@ This interface contains documentation on how to use your OS as well as the basic
 
 - `SUPER+H` — opens a quick reference for common commands (`sdg-tldr`)
 - `SUPER+K` — shows all available keybinds
-- `SUPER+SHIFT+M` or `documentation` in the terminal — opens a runner for various documentation pieces and quick reference lists
+- `SUPER+SHIFT+M` or `sdgdocs` in the terminal — opens the documentation browser for all installed modules
 
-## Chapter Layout
+## Available Documentation
 
-This interface is divided into chapters (first digit):
+Documentation is organised into the following suites:
 
-- 000 — welcome and overview of SDG-OS specific functionality
-- 100 — using SDG-OS via the UI
-- 200 — terminal basics
-- 300 — customizing DMS
-- 400 — customizing Mango
-- 500 — custom scripting
-- 600 — detailed help for all of the DMS settings
+- **SDG-DOC-GETTING-STARTED** — Welcome, included software, utility scripts
+- **SDG-DOC-NEW-USERS** — Desktop navigation, keybinds, workflows, getting help
+- **SDG-DOC-TERMINAL** — Terminal basics, file operations, text processing, scripting
+- **SDG-DOC-TINKERERS** — Module layout, configuration management, theming
+- **SDG-DOC-DEVS** — Architecture overview, SDG-PKG reference
+- **SDG-DOC-AGENTS** — Path conventions, automation, tools API
+- **SDG-DOC-TROUBLESHOOTING** — Common issues and fixes

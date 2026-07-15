@@ -1,3 +1,8 @@
+#  sdg-docs update 0.5.1
+    
+## changelog 0.5 > 0.5.1
+
+made major updates to docs
 #  sdg-docs update 0.5
     
 ## changelog 0.4.1.1 > 0.5

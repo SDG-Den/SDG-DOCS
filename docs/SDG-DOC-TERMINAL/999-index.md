@@ -7,3 +7,5 @@
 - [205-terminal-piping](205-terminal-piping.md) — Command piping and input/output redirection
 - [206-file-permissions](206-file-permissions.md) — File permissions management with chmod and chown
 - [207-additional-useful-terminal-functions](207-additional-useful-terminal-functions.md) — Additional terminal functions and workflow tricks
+- [501-scripting-basics](501-scripting-basics.md) — Bash scripting basics for automating tasks in SDG-OS
+- [502-flow-control](502-flow-control.md) — Bash programming constructs for conditional execution and looping
