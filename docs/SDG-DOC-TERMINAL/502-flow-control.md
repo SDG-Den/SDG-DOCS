@@ -1,85 +1,115 @@
-> Flow control
+> Flow Control
 
-bash provides standard programming constructs for conditional execution and looping.
+Bash conditionals and loops for SDG-OS scripting.
 
-### if statements
+### if/then/elif/fi
 
-```bash
 if [ condition ]; then
     # do something
-elif [ other condition ]; then
+elif [ other_condition ]; then
     # do something else
 else
     # fallback
 fi
-```
 
-### common test operators
+note: spaces around [ and ] are required.
 
-- `[ -f file ]` — file exists
-- `[ -d dir ]` — directory exists
-- `[ -z string ]` — string is empty
-- `[ string1 = string2 ]` — string equality
-- `[ num1 -eq num2 ]` — numeric equality
-- `[ num1 -gt num2 ]` — greater than
-- `[ num1 -lt num2 ]` — less than
+### Test Operators
 
-### for loops
+File tests:
+-f <file>: true if file exists and is a regular file
+-d <dir>: true if directory exists
+-e <path>: true if path exists
+-s <file>: true if file exists and is non-empty
+-r/-w/-x <file>: true if file is readable/writable/executable
 
-```bash
-for file in *.txt; do
-    echo "$file"
+String tests:
+[ "$a" = "$b" ]: string equality (use =, not ==)
+[ "$a" != "$b" ]: string inequality
+[ -z "$a" ]: true if string is empty
+[ -n "$a" ]: true if string is non-empty
+
+Numeric tests:
+[ "$a" -eq "$b" ]: equal
+[ "$a" -ne "$b" ]: not equal
+[ "$a" -gt "$b" ]: greater than
+[ "$a" -lt "$b" ]: less than
+
+### Combining Conditions
+
+[ condition1 ] && [ condition2 ]: AND
+[ condition1 ] || [ condition2 ]: OR
+[ ! condition ]: NOT
+
+### For Loops
+
+iterate over a list:
+
+for item in one two three; do
+    echo "$item"
 done
+
+iterate over files:
+
+for file in ~/projects/*; do
+    echo "found: $file"
+done
+
+iterate over numbers:
 
 for i in {1..5}; do
     echo "number $i"
 done
-```
 
-### while loops
+### While Loops
 
-```bash
-count=0
-while [ $count -lt 5 ]; do
-    echo "count: $count"
-    count=$((count + 1))
+read a file line by line:
+
+while IFS= read -r line; do
+    echo "line: $line"
+done < ~/somefile.txt
+
+infinite loop with break:
+
+while true; do
+    read -p "enter q to quit: " input
+    [ "$input" = "q" ] && break
 done
-```
 
-### functions
+### Case Statements
 
-```bash
-greet() {
-    echo "hello, $1"
-}
-
-greet "world"
-```
-
-### case statements
-
-```bash
-case "$1" in
+case "$var" in
     start)
         echo "starting..."
         ;;
     stop)
         echo "stopping..."
         ;;
+    restart|reload)
+        echo "restarting..."
+        ;;
     *)
-        echo "usage: $0 {start|stop}"
+        echo "unknown command"
         ;;
 esac
-```
 
-### practical example
+### Practical SDG-OS Examples
 
-```bash
+Checking if a file exists (common in SDG-OS scripts):
+
 #!/bin/bash
-for dir in ~/projects/*/; do
-    if [ -d "$dir/.git" ]; then
-        echo "updating $(basename $dir)"
-        git -C "$dir" pull
-    fi
+STATE=~/.config/sdgos/wallpaper.state
+if [ -f "$STATE" ]; then
+    CURRENT=$(cat "$STATE")
+else
+    CURRENT="default"
+fi
+echo "Current wallpaper group: $CURRENT"
+
+Looping through state files:
+
+for state in ~/.config/sdgos/state/*.state; do
+    [ -f "$state" ] || continue
+    name=$(basename "$state" .state)
+    echo "State for $name: $(cat "$state")"
 done
-```

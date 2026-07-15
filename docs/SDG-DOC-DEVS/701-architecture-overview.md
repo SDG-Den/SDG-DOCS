@@ -22,7 +22,7 @@ The central package registry is `SDGOS.repo` in the SDG-REPO module.
 Each entry is a pipe-delimited record:
 
 ```
-sdg-vox|https://git.sdgcloud.nl/SDGDen/SDG-VOX|https://git.sdgcloud.nl/SDGDen/SDG-VOX/raw/branch/main/README.md
+sdg-vox|https://github.com/SDG-Den/SDG-VOX|https://raw.githubusercontent.com/SDG-Den/SDG-VOX/refs/heads/main/info.md
 ```
 
 Fields: `package-name | git-url | readme-url`

@@ -48,3 +48,6 @@ colour palette from the current wallpaper.  This palette is used by:
 The generated palette is written to
 `~/.local/state/quickshell/user/generated/colors.json` and can be
 previewed with the `colors.sh` utility.
+
+To manually regenerate the palette from the current wallpaper, run
+`matugen-compile`.

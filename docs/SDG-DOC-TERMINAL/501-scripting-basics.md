@@ -1,67 +1,79 @@
-> Scripting basics
+> Scripting Basics
 
-bash scripting lets you automate tasks and extend SDG-OS with custom tooling.
+Bash scripting fundamentals for SDG-OS.
 
-### script structure
+### Shebang
 
-a bash script starts with a shebang:
+every script starts with a shebang line that tells the system which interpreter to use:
 
-```bash
 #!/bin/bash
-# my script
-echo "hello world"
-```
 
-make it executable: `chmod +x myscript.sh`
-run it: `./myscript.sh` or `bash myscript.sh`
+this must be the very first line of the file.
 
-### variables
+### Variables
 
-```bash
-name="world"
-echo "hello $name"
-```
+name="SDG-OS"
+echo "Hello, $name"
+echo "Home: $HOME"
 
-use curly braces for clarity: `echo "${name}_file"`
+use $ to reference variables. wrap in quotes to preserve spaces.
 
-### command substitution
+### Echo
 
-```bash
-result=$(ls)
-echo "$result"
-```
+echo "text": prints text to stdout.
+echo "variable: $var": prints variable value.
 
-### arguments
+### Reading Files (cat)
 
-```bash
-echo "first arg: $1"
-echo "all args: $@"
-echo "arg count: $#"
-```
+content=$(cat /path/to/file)
+echo "$content"
 
-### reading input
+### Command Substitution
 
-```bash
-read -p "enter your name: " name
-echo "hi $name"
-```
+current_dir=$(pwd)
+files=$(ls)
+echo "$files"
 
-### exit codes
+use $(command) to capture command output into a variable.
+the old backtick syntax (`command`) also works but is less preferred.
 
-```bash
-command
-if [ $? -eq 0 ]; then
-    echo "success"
+### Exit Codes
+
+0 = success, non-zero = failure.
+Use $? to get the exit code of the last command:
+
+ls /tmp
+echo "Exit code: $?"
+
+scripts should exit with appropriate codes:
+exit 0   # success
+exit 1   # general error
+
+### Making Scripts Executable
+
+chmod +x myscript.sh
+
+then run with: ./myscript.sh or path/to/myscript.sh
+
+### SDG-OS Script Patterns
+
+SDG-OS scripts commonly use:
+- fzf for interactive menus (fzf --layout=reverse --preview ...)
+- mmsg for mango IPC (mmsg dispatch ...)
+- dms ipc call for DMS IPC (dms ipc call spotlight toggle)
+- notify-send for desktop notifications
+- state files in ~/.config for persistent settings
+
+### Example: Simple Keybind Script
+
+#!/bin/bash
+# toggle between two wallpapers
+
+CURRENT=$(cat ~/.config/wallpaper.state)
+if [ "$CURRENT" = "dark" ]; then
+    echo "light" > ~/.config/wallpaper.state
+    dms ipc call wallpaper set ~/wallpapers/light.jpg
 else
-    echo "failed"
+    echo "dark" > ~/.config/wallpaper.state
+    dms ipc call wallpaper set ~/wallpapers/dark.jpg
 fi
-```
-
-### useful commands for scripting
-
-- `grep` — search text
-- `sed` — replace text
-- `awk` — process columns
-- `jq` — parse JSON
-- `find` — locate files
-- `xargs` — build command lines

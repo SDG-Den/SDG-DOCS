@@ -41,13 +41,6 @@ runs update on every installed module).
 - Re-apply symlinks (the entrypoint may have changed)
 - Verify critical commands exist
 
-## detect.sh (optional)
-
-**Contract:**
-- Check that all required system dependencies are available
-- Exit 0 if everything is fine, non-zero with a message if not
-- Optional dependencies should be noted but not cause failure
-
 ## Common Patterns
 
 ### Conditional Config Copy
@@ -61,8 +54,8 @@ runs update on every installed module).
 ### Dependency Installation
 
 ```bash
-unipkg install any python3-gobject
-unipkg install any python3-cairo
+unipkg install any python-gobject
+unipkg install any python-cairo
 ```
 
 ### Multiple Entrypoints
