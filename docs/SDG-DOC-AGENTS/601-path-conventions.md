@@ -18,13 +18,13 @@ ls /usr/bin/sdgtip     # Check if specific CLI exists
 
 ```sh
 # List all documentation modules
-find ~/.local/docs/ -mindepth 2 -maxdepth 2 -type d
+find ~/.local/docs/ -maxdepth 1 -type d
 
 # Read a specific doc file
-cat ~/.local/docs/SDG-DOCS/SDG-DOC-DEVS/01-architecture-overview.md
+cat ~/.local/docs/SDG-DOC-DEVS/701-architecture-overview.md
 
 # Read all README files for module overviews
-find ~/.local/docs/ -name 'README.md'
+find ~/.local/docs/ -name '*.md' -path '*/999-index*'
 ```
 
 ## Read Module Tips

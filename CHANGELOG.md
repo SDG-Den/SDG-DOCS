@@ -1,3 +1,9 @@
+#  sdg-docs update 0.5
+    
+## changelog 0.4.1.1 > 0.5
+
+made major updates to documentation and fixed entrypoint scripts. 
+
 #  sdg-docs update 0.4.1.1
     
 ## changelog 0.4.1 > 0.4.1.1

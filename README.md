@@ -4,7 +4,7 @@ The SDG-OS documentation system. Aggregate, browse, and read documentation from 
 
 ## Description
 
-SDG-DOCS provides a unified documentation browser (`sdgdocs`) that collects markdown docs from every installed module and presents them in an interactive fzf-based interface. It ships six curated documentation suites covering users, tinkerers, developers, AI agents, troubleshooting, and migration.
+SDG-DOCS provides a unified documentation browser (`sdgdocs`) that collects markdown docs from every installed module and presents them in an interactive fzf-based interface. It ships curated documentation suites covering new users, desktop usage, terminal skills, customization, development, tinkerers, developers, AI agents, troubleshooting, and migration.
 
 ## Usage
 

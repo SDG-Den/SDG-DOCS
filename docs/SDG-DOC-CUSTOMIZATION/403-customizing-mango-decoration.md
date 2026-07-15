@@ -1,45 +1,64 @@
 > Customizing mango - decoration
 
-mangoWM window decorations control the look of window borders, the bar, and on-screen display elements.
+mangoWM window decorations control the look of window borders, the bar, and on-screen display elements. Decoration settings are in ~/.config/mango/config.conf which sources decoration.conf.
 
 ### window borders
 
-configured in ~/.config/mango/mangowm.conf:
+configured in decoration.conf:
 
 ```
-border_size = 2
-no_border_on_floating = false
-active_border_color = rgb(COLOR)
-inactive_border_color = rgb(COLOR)
+border_radius = 10
+bordercolor = 0x88aaad82
+focuscolor = 0x33ccffee
 ```
 
 COLOR values come from your Material You palette. you can find the current palette with `colortui`.
 
-### bar customization
-
-the mango bar can be styled in the bar section of mangowm.conf:
-- bar_height — height in pixels
-- bar_position — top or bottom
-- bar_color — background color
-- bar_use_custom — enable custom colors per workspace
-
 ### gaps and padding
 
+configured in dms/layout.conf (managed by DMS):
+
 ```
-gaps_in = 5
-gaps_out = 10
-gaps_workspaces = 5
+gappih=4
+gappiv=4
+gappoh=4
+gappov=4
 ```
 
-- gaps_in — gap between windows on the same workspace
-- gaps_out — gap between windows and screen edge
-- gaps_workspaces — gap between workspaces
+- gappih/gappiv — horizontal and vertical gaps between windows
+- gappoh/gappov — outer horizontal and vertical gaps
+
+### opacity
+
+you can set per-window opacity in windowrules.conf:
+```
+windowrule=appid:firefox,focused_opacity:0.95,unfocused_opacity:0.85
+```
+
+or globally in decoration.conf:
+```
+focused_opacity=0.9
+unfocused_opacity=0.8
+```
 
 ### active window hints
 
-you can set special borders or colors for the active window to make it stand out:
+the active window gets a different border color:
 ```
-active_border_size = 3
-active_border_color = rgb(COLOR)
-group_border_color = rgb(COLOR)
+focuscolor = 0x33ccffee
+```
+
+### bar customization
+
+the DMS bar is customized through the DMS settings menu (*super+s*) or using `dmsbars` to switch preset combinations (classic, windows, mac, combo, sidebar, side+status). bar layout and appearance settings are under the "dank bar" section in the DMS settings.
+
+### animations
+
+decoration.conf includes animation settings:
+```
+animation_open=zoom
+animation_close=fade
+blur=3
+blur_passes=3
+blur_radius=3
 ```

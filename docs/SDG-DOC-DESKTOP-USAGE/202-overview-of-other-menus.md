@@ -21,7 +21,18 @@ this will allow you to search through DMS settings.
 
 this can be accessed with *SUPER+K*
 
-the keybinds menu gives you a searchable overview of the keybinds configured in ~/.config/mango/binds.conf
+the keybinds menu gives you a searchable overview of the keybinds configured in ~/.config/mango/config.conf and its sourced bind files. the keybinds shown are filtered by your current keymode (see below).
+
+## Keymodes
+
+SDG-OS uses mangoWM keymodes to give you context-sensitive keybinds. the default mode is **common** where all standard binds are active. press function keys to switch modes:
+
+- **F1 — Window mode:** WASD moves windows instead of focus
+- **F2 — Group mode:** group operations (merge, join, leave) and layout switching
+- **F3 — Scripts mode:** reserved for script access
+- **F4 — Theming mode:** wallpaper (*super+w*), bar presets (*super+shift+d*), colors (*super+alt+t*)
+
+press **escape** in any sub-mode to return to default. your current mode is shown when you press *super+k* to view keybinds.
 
 ## clipboard History
 
@@ -114,4 +125,9 @@ spawned with *SUPER+SHIFT+M*, this menu gives you quick access to relevant docum
 ## Project selector
 
 spawned with *SUPER+SHIFT+TAB*, this menu gives you quick access to working on any git projects in your ~/projects directory
+
+
+## workspace swap
+
+spawned with *SUPER+J* (mark) and *SUPER+SHIFT+J* (swap), this lets you mark a window and swap it with another workspace's content.
 

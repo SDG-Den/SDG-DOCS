@@ -5,7 +5,7 @@ Window Management is done primarily through your keyboard, with a couple of mous
 
 Within Mango, windows will automatically lay themselves out depending on your configured layout. you can tweak this layout at any time using *SUPER+SHIFT+W*.
 
-the different layouts will be covered in 105 - layouts.
+the different layouts will be covered in 205 - layouts.
 
 
 the following keybinds will help you with window management:
@@ -93,10 +93,13 @@ if there *is* an instance in the terminal-specific scratchpad on that monitor, i
 SDG-Os pre-loads one instance of ghostty to your main monitor's terminal scratchpad. 
 
 
-### arrow keys
+### movement keys
 
-[^SUPER+ARROWS]: move focus
-moves focus between windows using the keyboard
+[^SUPER+W]: move focus up
+[^SUPER+A]: move focus left
+[^SUPER+S]: move focus down
+[^SUPER+D]: move focus right
+moves focus between windows using WASD keys.
 
 [^SUPER+SHIFT+LEFT/RIGHT]: focus previous/next
 for some layouts where windows overlap eachother, this will allow you to go to the previously focused window. 
@@ -104,8 +107,8 @@ for some layouts where windows overlap eachother, this will allow you to go to t
 [^SUPER+SHIFT+UP/DOWN]: exchange stack clients (previous/next)
 moves the window up and down the stack in all master/stack (tiled) layouts.
 
-[^SUPER+CTRL+ARROWS]: resize window
-resizes the window
+[^F1]: enters window move mode
+in this mode, WASD moves windows instead of focus. press escape to return to normal mode.
 
 
 ### mouse binds
