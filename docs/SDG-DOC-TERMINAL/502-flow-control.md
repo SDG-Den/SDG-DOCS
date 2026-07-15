@@ -1,9 +1,10 @@
 # Flow Control
 
-Bash conditionals and loops for SDG-OS scripting.
+bash provides standard programming constructs for conditional execution and looping.
 
 ### if/then/elif/fi
 
+```bash
 if [ condition ]; then
     # do something
 elif [ other_condition ]; then
@@ -11,73 +12,91 @@ elif [ other_condition ]; then
 else
     # fallback
 fi
+```
 
-note: spaces around [ and ] are required.
+spaces around `[` and `]` are required.
 
-### Test Operators
+### test operators
 
-File tests:
--f <file>: true if file exists and is a regular file
--d <dir>: true if directory exists
--e <path>: true if path exists
--s <file>: true if file exists and is non-empty
--r/-w/-x <file>: true if file is readable/writable/executable
+file tests:
+- `[ -f file ]` — file exists and is a regular file
+- `[ -d dir ]` — directory exists
+- `[ -e path ]` — path exists
+- `[ -s file ]` — file is non-empty
+- `[ -r/-w/-x file ]` — file is readable/writable/executable
 
-String tests:
-[ "$a" = "$b" ]: string equality (use =, not ==)
-[ "$a" != "$b" ]: string inequality
-[ -z "$a" ]: true if string is empty
-[ -n "$a" ]: true if string is non-empty
+string tests:
+- `[ "$a" = "$b" ]` — strings are equal (use =, not ==)
+- `[ "$a" != "$b" ]` — strings are different
+- `[ -z "$a" ]` — string is empty
+- `[ -n "$a" ]` — string is non-empty
 
-Numeric tests:
-[ "$a" -eq "$b" ]: equal
-[ "$a" -ne "$b" ]: not equal
-[ "$a" -gt "$b" ]: greater than
-[ "$a" -lt "$b" ]: less than
+numeric tests:
+- `[ "$a" -eq "$b" ]` — equal
+- `[ "$a" -ne "$b" ]` — not equal
+- `[ "$a" -gt "$b" ]` — greater than
+- `[ "$a" -lt "$b" ]` — less than
 
-### Combining Conditions
+always quote your string variables in tests. without quotes, an empty variable causes a syntax error.
 
-[ condition1 ] && [ condition2 ]: AND
-[ condition1 ] || [ condition2 ]: OR
-[ ! condition ]: NOT
+### combining conditions
 
-### For Loops
+```bash
+[ condition1 ] && [ condition2 ]   # AND
+[ condition1 ] || [ condition2 ]   # OR
+[ ! condition ]                    # NOT
+```
+
+### for loops
 
 iterate over a list:
 
+```bash
 for item in one two three; do
     echo "$item"
 done
+```
 
 iterate over files:
 
+```bash
 for file in ~/projects/*; do
     echo "found: $file"
 done
+```
 
 iterate over numbers:
 
+```bash
 for i in {1..5}; do
     echo "number $i"
 done
+```
 
-### While Loops
+### while loops
 
 read a file line by line:
 
+```bash
 while IFS= read -r line; do
     echo "line: $line"
 done < ~/somefile.txt
+```
+
+the `IFS=` and `-r` preserve whitespace and backslashes.
 
 infinite loop with break:
 
+```bash
 while true; do
     read -p "enter q to quit: " input
     [ "$input" = "q" ] && break
 done
+```
 
-### Case Statements
+### case statements
 
+```bash
 case "$var" in
     start)
         echo "starting..."
@@ -92,11 +111,15 @@ case "$var" in
         echo "unknown command"
         ;;
 esac
+```
 
-### Practical SDG-OS Examples
+each pattern ends with `;;`. `*` is the default catch-all.
 
-Checking if a file exists (common in SDG-OS scripts):
+### practical examples
 
+checking if a state file exists before reading it:
+
+```bash
 #!/bin/bash
 STATE=~/.config/sdgos/wallpaper.state
 if [ -f "$STATE" ]; then
@@ -105,11 +128,16 @@ else
     CURRENT="default"
 fi
 echo "Current wallpaper group: $CURRENT"
+```
 
-Looping through state files:
+looping through multiple state files:
 
+```bash
 for state in ~/.config/sdgos/state/*.state; do
     [ -f "$state" ] || continue
     name=$(basename "$state" .state)
     echo "State for $name: $(cat "$state")"
 done
+```
+
+the `[ -f "$state" ] || continue` guard skips the body if the glob matched nothing.
