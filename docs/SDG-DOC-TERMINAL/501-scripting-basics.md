@@ -1,4 +1,4 @@
-> Scripting Basics
+# Scripting Basics
 
 Bash scripting fundamentals for SDG-OS.
 
