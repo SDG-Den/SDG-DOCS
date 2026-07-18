@@ -11,9 +11,11 @@ Navigates with arrow keys or mouse; type to search. Pressing Enter opens the man
 ## Mango Config Editor
 
 Keybind: **SUPER+M**
-Alias: `mangoconf`
+Alias: `mangoconf edit`
 
 Lists configuration files in `~/.config/mango` with preview. Press Enter to open a file in `micro`. Use **CTRL+S** to save and **CTRL+Q** to quit, then reload with **SUPER+R**.
+
+To view explanations for each config line instead, use **SUPER+ALT+M** or `mangoconf view`.
 
 ## Project Selector
 
@@ -64,7 +66,7 @@ Three screenshot modes that cycle on each press of **PRINT**: save to clipboard,
 ## Config Overview
 
 Keybind: **SUPER+ALT+M**
-Alias: `manmenu`
+Alias: `mangoconf view`
 
 View explanations for each line in your mangoWM configuration.  Browse line-by-line with details on what each setting does.
 
